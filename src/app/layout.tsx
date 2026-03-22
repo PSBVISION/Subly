@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", dmsans.className)}
+      className={cn("h-full hydrated", "antialiased", dmsans.className)}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
