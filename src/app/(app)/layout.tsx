@@ -19,9 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
+    <html suppressHydrationWarning
       lang="en"
-      className={cn("h-full hydrated", "antialiased", dmsans.className)}
+      className={cn("h-full", "antialiased", dmsans.className)}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
