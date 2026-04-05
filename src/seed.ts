@@ -165,5 +165,11 @@ const seed = async () => {
   }
 };
 
-await seed();
-process.exit(0);
+try {
+  await seed();
+  console.log("Database seeding completed successfully.");
+  process.exit(0);
+} catch (error) {
+  console.error("Error occurred while seeding the database:", error);
+  process.exit(1);
+}
