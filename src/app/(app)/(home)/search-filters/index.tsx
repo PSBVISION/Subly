@@ -1,8 +1,9 @@
+import { CustomerCategory } from "../types";
 import { Categories } from "./categories";
 import { SearchInput } from "./search-input";
 
 interface SearchFiltersProps {
-  data: any;
+  data: CustomerCategory[];
 }
 
 export const SearchFilters = ({ data }: SearchFiltersProps) => {

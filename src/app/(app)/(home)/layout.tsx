@@ -5,6 +5,7 @@ import { getPayload } from 'payload'
 import { Footer } from "./footer";
 import { Navbar } from "./navbar";
 import { SearchFilters } from "./search-filters";
+import { CustomerCategory } from './types';
 
 interface Props {
   children: React.ReactNode;
@@ -22,10 +23,11 @@ const layout = async ({ children }: Props) => {
         parent:{
           exists:false,
         }
-      }
+      },
+      sort:"name"
     })
 
-    const formattedData = data.docs.map((doc) => ({
+    const formattedData: CustomerCategory[] = data.docs.map((doc) => ({
       ...doc,
       subcategories:(doc.subcategories?.docs ?? []).map((doc)=>({
         //Because of the depth:1, the subcategories are populated as well, so we can directly map them to the Category type
