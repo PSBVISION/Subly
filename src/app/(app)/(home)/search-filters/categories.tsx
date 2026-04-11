@@ -7,6 +7,7 @@ import { CustomerCategory } from "../types";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ListFilterIcon } from "lucide-react";
+import { CategoriesSidebar } from "./categories-sidebar";
 
 interface categoriesProps {
   data: CustomerCategory[];
@@ -58,6 +59,10 @@ export const Categories = ({ data }: categoriesProps) => {
 
   return (
     <div className="relative w-full">
+      {/* Categories Sidebar */}
+      <CategoriesSidebar open={isSidebarOpen}  onOpenChange={setIsSidebarOpen} data={data}/>
+
+
       {/* Hidden Div to measure all items */}
       <div
         ref={measureRef}
@@ -92,6 +97,7 @@ export const Categories = ({ data }: categoriesProps) => {
         ))}
         <div ref={viewAllRef} className="shrink-0">
           <Button
+            onClick={() => setIsSidebarOpen(true)}
             className={cn(
               "h-11, px-4 bg-transparent border-transparent rounded-full hover:bg-white hover:border-primary text-black",
               isActiveCategoryHidden &&
@@ -100,7 +106,7 @@ export const Categories = ({ data }: categoriesProps) => {
             )}
           >
             View All
-            <ListFilterIcon className="ml-2"/>
+            <ListFilterIcon className="ml-2" />
           </Button>
         </div>
       </div>
