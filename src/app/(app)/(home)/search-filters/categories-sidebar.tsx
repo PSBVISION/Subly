@@ -61,13 +61,21 @@ export const CategoriesSidebar = ({
     }
   };
 
+
+  const handleBackClick = () => {
+    if(parentCategories){
+      setParentCategories(null);
+      setSelectedCategory(null);
+    }
+  }
+
   const backgroundColor = selectedCategory?.color || "white";
   return (
     <Sheet open={open} onOpenChange={handleOpenChange}>
       <SheetContent
         side="left"
         className="p-0 transition-none"
-        style={{ backgroundColor: "white" }}
+        style={{ backgroundColor }}
       >
         <SheetHeader className="p-4 border-b">
           <SheetTitle>Categories</SheetTitle>
@@ -75,7 +83,7 @@ export const CategoriesSidebar = ({
         <ScrollArea className="flex flex-col overflow-y-auto h-full pb-2">
           {parentCategories && (
             <button
-              onClick={() => {}}
+              onClick={handleBackClick}
               className="w-full text-left p-4 hover:bg-black cursor-pointer hover:text-white flex items-center text-base font-medium"
             >
               <ChevronLeftIcon className="size-4 mr-2" /> Back
