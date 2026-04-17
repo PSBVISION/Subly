@@ -31,12 +31,19 @@ export const CategoryDropdown = ({
     setIsOpen(false);
   };
   const dropdownPosition = getDropdownPosition();
+
+  const toggleDropdown = () => {
+    if (category.subcategories?.docs?.length) {
+      setIsOpen(!isOpen)
+    }
+  }
   return (
     <div
       className="relative"
       ref={dropdownRef}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      onClick={}
     >
       <div className="relative">
         <Button
